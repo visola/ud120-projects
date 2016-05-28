@@ -1,13 +1,13 @@
 #!/usr/bin/python
 
-""" 
+"""
     This is the code to accompany the Lesson 2 (SVM) mini-project.
 
-    Use a SVM to identify emails from the Enron corpus by their authors:    
+    Use a SVM to identify emails from the Enron corpus by their authors:
     Sara has label 0
     Chris has label 1
 """
-    
+
 import sys
 from time import time
 sys.path.append("../tools/")
@@ -20,11 +20,30 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 
+# features_train = features_train[:len(features_train)/100]
+# labels_train = labels_train[:len(labels_train)/100]
 
+from sklearn import svm
+from sklearn.metrics import accuracy_score
 
-#########################################################
-### your code goes here ###
+clf = svm.SVC(kernel = 'rbf',C = 10000)
 
-#########################################################
+t0 = time()
+clf.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "s"
 
+t1 = time()
+predict = clf.predict(features_test)
+print "testing time:", round(time()-t0, 3), "s"
+print accuracy_score(labels_test, predict)
 
+print "10", predict[10]
+print "26", predict[26]
+print "50", predict[50]
+
+count = 0
+for i in predict:
+    if i == 1:
+        count = count + 1
+
+print "Total", count
