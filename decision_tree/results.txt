@@ -1,0 +1,19 @@
+- min_samples_split=40
+  Training...
+  training time: 49.156 s
+  Testing...
+  testing time: 49.193 s
+  accuracy: 0.977815699659
+
+
+- number of features
+  before (10): 3785
+  after (1): 379
+
+- with 1% of features:
+  Number of features: 379
+  Training...
+  training time: 4.488 s
+  Testing...
+  testing time: 4.492 s
+  accuracy: 0.967007963595
