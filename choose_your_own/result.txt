@@ -1,0 +1,6 @@
+Number of features: 2
+Training...
+training time: 0.001 s
+Testing...
+testing time: 0.003 s
+accuracy: 0.936
